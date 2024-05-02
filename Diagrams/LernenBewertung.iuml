@@ -1,0 +1,21 @@
+@startuml
+top to bottom direction
+
+actor Lernender as L
+actor Lehrer as E
+
+L --> (InteraktiveQuiz): "Beginnt und beendet ein Quiz"
+(InteraktiveQuiz) --> (QuizRückmeldung): "Gibt sofortiges Feedback"
+(QuizRückmeldung) --> (Fortschrittsverfolgung): "Aktualisiert den Fortschritt des Nutzers"
+
+L --> (Fortschrittsverfolgung): "Sieht Fortschrittsberichte"
+
+E --> (ManuelleÜberschreibung): "Aktualisiert oder überschreibt den Fortschritt des Nutzers"
+
+(InteraktiveQuiz) .> (Überprüfungsmodus): "enthält"
+(Überprüfungsmodus) --> (InteraktiveQuiz): "Ermöglicht erneutes Überprüfen von Antworten"
+
+(Fortschrittsverfolgung) .> (Zielsetzung): "enthält"
+(Zielsetzung) --> (Fortschrittsverfolgung): "Setzt Meilensteine für den Lernfortschritt"
+
+@enduml
