@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor Administrator as A
+actor Lernender as L
+
+A --> (Kursverwaltung): "Fügt Kurse hinzu / aktualisiert sie"
+A --> (Kursüberwachung): "Überwacht den Kursstatus"
+
+L --> (Kurskatalogsuche): "Navigiert zum Kurskatalog"
+(Kurskatalogsuche) --> (Kursdetails): "Sieht detaillierte Informationen"
+
+L --> (Kursteilnahme): "Wählt einen Kurs zur Einschreibung"
+(Kursteilnahme) --> (KurslisteAktualisierung): "System aktualisiert die Kursliste des Nutzers"
+
+L --> (Lektionszugang): "Greift auf Kursinhalt zu"
+(Lektionszugang) --> (LektionStart): "Beginnt oder setzt eine Lektion fort"
+
+(Kurskatalogsuche) .> (Filter): "enthält"
+(Kurskatalogsuche) .> (Suche): "enthält"
+
+(Kursteilnahme) .> (Vollständigkeitsprüfung): "erweitert"
+(Vollständigkeitsprüfung) --> (Alternativkurs)
+
+(Lektionszugang) .> (Fortschrittsbegrenzung): "erweitert"
+(Fortschrittsbegrenzung) --> (Lektionszugang)
+
+@enduml
