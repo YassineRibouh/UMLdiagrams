@@ -22,7 +22,7 @@ node Frontend {
   component "HTTP/HTTPS Communication" as FComms
 }
 
-# Frontend interactions
+
 Vue --> Vuex: Manages state
 Vuex --> FComms: Interacts with backend
 Vue --> FComms: Communicates directly
