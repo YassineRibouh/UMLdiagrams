@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+
+actor Benutzer as U
+actor Lernender as L
+
+L <|-- U
+
+U --> (Anmeldung): "Navigiert zur Anmeldeseite"
+(Anmeldung) --> (AnmeldedatenPrüfung): "Gibt Anmeldedaten ein"
+(AnmeldedatenPrüfung) --> (Übersicht): "Zugriff gewährt"
+
+L --> (Abmeldung): "Beendet Sitzung"
+(Abmeldung) --> (Weiterleitung): "Leitet zur Anmeldeseite weiter"
+
+L --> (Profilverwaltung): "Navigiert zu Kontoeinstellungen"
+(Profilverwaltung) --> (InformationAktualisierung): "Bearbeitet Informationen"
+(InformationAktualisierung) --> (KontoAktualisiert): "Konto aktualisiert"
+
+(Anmeldung) .> (Fehlerbehandlung): "enthält"
+(Fehlerbehandlung) --> (Anmeldung): "Falsche Anmeldedaten"
+
+(Anmeldung) .> (Sitzungszeitüberschreitung): "erweitert"
+(Sitzungszeitüberschreitung) --> (Weiterleitung)
+
+(Profilverwaltung) .> (Neuauthentifizierung): "erweitert"
+(Neuauthentifizierung) --> (PasswortÄnderung)
+
+@enduml
