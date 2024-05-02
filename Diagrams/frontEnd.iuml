@@ -1,0 +1,36 @@
+@startuml
+top to bottom direction
+
+node Frontend {
+  component "Vue.js Components" as Vue {
+    [Home Page]
+    [Dashboard]
+    [Course Catalog]
+    [Course Details]
+    [Quiz Page]
+    [Registration Form]
+    [Login Form]
+    [Payment Form]
+  }
+  
+  component "Vuex State Management" as Vuex {
+    [User State]
+    [Course State]
+    [Quiz State]
+  }
+
+  component "HTTP/HTTPS Communication" as FComms
+}
+
+# Frontend interactions
+Vue --> Vuex: Manages state
+Vuex --> FComms: Interacts with backend
+Vue --> FComms: Communicates directly
+
+node Backend {
+  component "Express.js" as Express
+}
+
+FComms --> Express: Communicates with backend
+
+@enduml
