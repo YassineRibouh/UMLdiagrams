@@ -24,12 +24,12 @@ node Backend {
 
 database MongoDB as DB
 
-# Interactions between layers
+
 Express --> Logic: Routes requests
 Logic --> Persistence: Accesses and stores data
 Persistence --> DB: Stores/Retrieves data
 
-# Specific interactions
+
 Logic -> [Authentication Logic]: Manages user authentication
 Logic -> [Course Logic]: Handles course requests
 Logic -> [Quiz Logic]: Handles quiz requests
