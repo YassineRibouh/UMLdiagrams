@@ -1,0 +1,26 @@
+@startuml
+| Benutzerkontenverwaltung |
+start
+if (Anmelden?) then (yes)
+  :Benutzer gibt E-Mail und Passwort ein;
+  :Login API request to Backend;
+  | Backend |
+  :Authentifizierung überprüfen;
+  :JSON Web Token senden;
+  | Benutzerkontenverwaltung |
+  :Benutzer eingeloggt;
+else (no)
+  :Anmelden überspringen;
+endif
+
+if (Abmelden?) then (yes)
+  :Logout API request to Backend;
+  | Backend |
+  :Sitzung schließen;
+  | Benutzerkontenverwaltung |
+  :Benutzer ausgeloggt;
+else (no)
+  :Abmelden überspringen;
+endif
+stop
+@enduml
