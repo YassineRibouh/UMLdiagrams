@@ -1,0 +1,28 @@
+@startuml
+| Kursverwaltung |
+start
+:Kursverwaltung öffnen;
+if (Kurs durchsuchen?) then (yes)
+  :Benutzer durchsucht verfügbare Kurse;
+  :GET API request to Backend;
+  | Backend |
+  :Kursdaten senden;
+  | Kursverwaltung |
+  :Kurse anzeigen;
+else (no)
+  :Durchsuchen überspringen;
+endif
+
+if (Einschreiben?) then (yes)
+  :Benutzer wählt einen Kurs;
+  :POST API request to Backend;
+  | Backend |
+  :Einschreibung bestätigen;
+  | Kursverwaltung |
+  :Kurs hinzugefügt;
+else (no)
+  :Einschreiben überspringen;
+endif
+stop
+@enduml
+
