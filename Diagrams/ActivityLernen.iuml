@@ -1,0 +1,26 @@
+@startuml
+| Lernen und Bewertung |
+start
+:Lernen beginnen;
+if (Quiz absolvieren?) then (yes)
+  :Benutzer nimmt an Quiz teil;
+  :GET Quiz API request to Backend;
+  | Backend |
+  :Quiz-Daten senden;
+  | Lernen und Bewertung |
+  :Benutzer beantwortet Fragen;
+  :POST Quiz-Ergebnisse zu Backend;
+else (no)
+  :Quiz überspringen;
+endif
+
+:Fortschritt verfolgen;
+:GET Fortschritt API request to Backend;
+| Backend |
+:Fortschrittsdaten senden;
+| Lernen und Bewertung |
+:Fortschritt anzeigen;
+stop
+@enduml
+
+
