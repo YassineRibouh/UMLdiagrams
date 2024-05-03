@@ -1,10 +1,9 @@
 @startuml
-[*] --> Unauthenticated: Start
-Unauthenticated --> Authenticating: "User submits login form"
-Authenticating --> Authenticated: "Valid credentials"
+[*] --> State1
+State1 --> [*]
+State1 : this is a string
+State1 : this is another string
 
-Authenticated --> LoggingOut: "User clicks logout"
-LoggingOut --> Unauthenticated: "Session closed"
-
-Authenticated --> Authenticating: "Session expired"
+State1 -> State2
+State2 --> [*]
 @enduml
