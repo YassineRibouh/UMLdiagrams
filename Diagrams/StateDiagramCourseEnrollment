@@ -7,3 +7,4 @@ Enrolled --> NotEnrolled: "Course completion"
 Enrolled --> NotEnrolling: "Withdraws"
 
 Enrolling --> NotEnrolled: "Enrollment failed"
+@enduml
