@@ -7,3 +7,4 @@ Authenticated --> LoggingOut: "User clicks logout"
 LoggingOut --> Unauthenticated: "Session closed"
 
 Authenticated --> Authenticating: "Session expired"
+@enduml
