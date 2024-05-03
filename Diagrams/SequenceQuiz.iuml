@@ -1,0 +1,21 @@
+@startuml
+actor Lernender
+participant Frontend
+participant Backend
+database MongoDB
+
+Lernender -> Frontend: Quiz öffnen
+Frontend -> Backend: GET /api/quiz/{lessonId}
+Backend -> MongoDB: Fetch quiz data
+MongoDB --> Backend: Quiz data
+Backend --> Frontend: Quiz data
+Frontend --> Lernender: Quiz anzeigen
+
+Lernender -> Frontend: Antwort einreichen
+Frontend -> Backend: POST /api/quiz/{lessonId}/submit
+Backend -> MongoDB: Store quiz result
+MongoDB --> Backend: Confirmation
+Backend --> Frontend: Quiz-Ergebnis bestätigen
+Frontend --> Lernender: Ergebnis anzeigen
+
+@enduml
