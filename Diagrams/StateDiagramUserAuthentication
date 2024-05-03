@@ -1,0 +1,9 @@
+@startuml
+[*] --> Unauthenticated: Start
+Unauthenticated --> Authenticating: "User submits login form"
+Authenticating --> Authenticated: "Valid credentials"
+
+Authenticated --> LoggingOut: "User clicks logout"
+LoggingOut --> Unauthenticated: "Session closed"
+
+Authenticated --> Authenticating: "Session expired"
