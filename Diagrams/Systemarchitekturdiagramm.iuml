@@ -1,0 +1,28 @@
+@startuml
+top to bottom direction
+
+node Frontend {
+  component VueJS as Vue
+}
+
+node Backend {
+  component NodeJS as Node
+  component ExpressJS as Express
+  component BackendServices as BS
+}
+
+database MongoDB as DB
+
+Vue --> Node: HTTP/HTTPS, JSON
+Node --> Express: Server-side communication
+Express --> BS: Backend service requests, JSON
+BS --> DB: Stores/Retrieves user, course, and quiz data
+
+node ExternalServices as ES {
+  component PayPal as PaymentGateway
+}
+
+Express --> ES: API Integration, JSON
+ES --> PaymentGateway: Payment processing, JSON
+
+@enduml
