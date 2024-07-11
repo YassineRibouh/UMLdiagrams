@@ -3,28 +3,32 @@ top to bottom direction
 
 node Frontend {
   component "Vue.js Components" as Vue {
-    [Home Page]
-    [Dashboard]
-    [Course Catalog]
-    [Course Details]
-    [Quiz Page]
-    [Registration Form]
-    [Login Form]
-    [Payment Form]
+    [AboutView.vue]
+    [ChangePassword.vue]
+    [Contactus.vue]
+    [CourseCompletion.vue]
+    [CourseDetail.vue]
+    [CourseReview.vue]
+    [Courses.vue]
+    [EditProfile.vue]
+    [EnrollmentConfirmation.vue]
+    [HomeView.vue]
+    [Lesson.vue]
+    [MyCourses.vue]
+    [NotFound.vue]
+    [Quiz.vue]
+    [Login.vue]
+    [Register.vue]
   }
-  
-  component "Vuex State Management" as Vuex {
-    [User State]
-    [Course State]
-    [Quiz State]
+
+  component "Vue Router" as VueRouter {
+    [Route Management]
   }
 
   component "HTTP/HTTPS Communication" as FComms
 }
 
-
-Vue --> Vuex: Manages state
-Vuex --> FComms: Interacts with backend
+Vue --> VueRouter: Handles routing
 Vue --> FComms: Communicates directly
 
 node Backend {
