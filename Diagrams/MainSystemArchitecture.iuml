@@ -3,7 +3,6 @@ top to bottom direction
 
 node Frontend {
   component "Vue.js Components" as Vue
-  component "Vuex State Management" as Vuex
   component "HTTP/HTTPS Communication" as FComms
 }
 
