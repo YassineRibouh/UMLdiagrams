@@ -16,7 +16,6 @@ L --> (Kursteilnahme): "Wählt einen Kurs zur Einschreibung"
 L --> (Lektionszugang): "Greift auf Kursinhalt zu"
 (Lektionszugang) --> (LektionStart): "Beginnt oder setzt eine Lektion fort"
 
-(Kurskatalogsuche) .> (Filter): "enthält"
 (Kurskatalogsuche) .> (Suche): "enthält"
 
 (Kursteilnahme) .> (Vollständigkeitsprüfung): "erweitert"
