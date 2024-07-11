@@ -1,0 +1,40 @@
+@startuml
+top to bottom direction
+
+node Frontend {
+  component "Vue.js Components" as Vue {
+    [AboutView.vue]
+    [ChangePassword.vue]
+    [Contactus.vue]
+    [CourseCompletion.vue]
+    [CourseDetail.vue]
+    [CourseReview.vue]
+    [Courses.vue]
+    [EditProfile.vue]
+    [EnrollmentConfirmation.vue]
+    [HomeView.vue]
+    [Lesson.vue]
+    [MyCourses.vue]
+    [NotFound.vue]
+    [Quiz.vue]
+    [Login.vue]
+    [Register.vue]
+  }
+
+  component "Vue Router" as VueRouter {
+    [Route Management]
+  }
+
+  component "HTTP/HTTPS Communication" as FComms
+}
+
+Vue --> VueRouter: Handles routing
+Vue --> FComms: Communicates directly
+
+node Backend {
+  component "Express.js" as Express
+}
+
+FComms --> Express: Communicates with backend
+
+@enduml
