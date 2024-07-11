@@ -1,0 +1,39 @@
+@startuml
+top to bottom direction
+
+node Frontend {
+  component "Vue.js Components" as Vue
+  component "Vuex State Management" as Vuex
+  component "HTTP/HTTPS Communication" as FComms
+}
+
+node Backend {
+  component "Express.js" as Express
+  component "Business Logic Layer" as Logic
+  component "Authentication Service" as Auth
+  component "Course Service" as Course
+  component "Quiz Service" as Quiz
+  component "Persistence Layer" as Persistence
+}
+
+database MongoDB as DB
+
+Vue --> FComms: Interacts with Backend
+FComms --> Express: Server-side communication
+Express --> Logic: Routing and Request Handling
+Logic --> Auth: Authentication requests, JSON
+Logic --> Course: Course-related requests, JSON
+Logic --> Quiz: Quiz-related requests, JSON
+Auth --> DB: Stores/Retrieves user data
+Course --> DB: Stores/Retrieves course data
+Quiz --> DB: Stores/Retrieves quiz data
+
+node ExternalServices as ES {
+  component "PayPal" as PaymentGateway
+}
+
+Logic --> ES: API Integration
+Express --> ES: API Integration, JSON
+ES --> PaymentGateway: Payment processing, JSON
+
+@enduml
