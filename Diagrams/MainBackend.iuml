@@ -1,0 +1,47 @@
+@startuml
+top to bottom direction
+
+node Backend {
+  component "Express.js" as Express {
+    [Middleware]
+    [Routing]
+  }
+  
+  component "Business Logic Layer" as Logic {
+    [Authentication Logic]
+    [Course Logic]
+    [Quiz Logic]
+    [Payment Logic]
+  }
+
+  component "Persistence Layer" as Persistence {
+    [User Data]
+    [Course Data]
+    [Quiz Data]
+    [Payment Data]
+  }
+}
+
+database MongoDB as DB
+
+
+Express --> Logic: Routes requests
+Logic --> Persistence: Accesses and stores data
+Persistence --> DB: Stores/Retrieves data
+
+
+Logic -> [Authentication Logic]: Manages user authentication
+Logic -> [Course Logic]: Handles course requests
+Logic -> [Quiz Logic]: Handles quiz requests
+Logic -> [Payment Logic]: Coordinates payments
+
+node ExternalServices as ES {
+  component "Payment Service" as PS
+  component "PayPal" as PaymentGateway
+}
+
+Logic --> ES: API Integration
+Logic --> PS: Manages payment transactions
+PS --> PaymentGateway: Processes payments
+
+@enduml
